@@ -1,7 +1,9 @@
 // Learning C++ 
 // Challenge 04_05
 // Calculate a GPA, by Eduardo Corpeño 
-
+/*
+A is 4, B is 3, D is 1, F is 0
+*/
 #include <iostream>
 #include <vector>
 #include "records.h"
@@ -26,9 +28,30 @@ int main(){
 
     // Calculate the GPA for the selected student.
     // Write your code here
+    float totalcredits = 0.0f;
+    for (auto g : grades){
+        if(id == g.get_student_id()){
+            float score = float(4 - (g.get_grade()-'A'));
+            for (auto c : courses){
+                if (g.get_course_id() == c.get_id()){
+                    GPA += score*c.get_credits();
+                    totalcredits += c.get_credits();
+                }
+            }
+        }
+    }
+    GPA /= totalcredits;
 
     std::string student_str;
-    student_str = students[0].get_name(); // Change this to the selected student's name
+    int s = 0;
+    for (int i = 0; i < students.size(); i++){
+        if (id == students[i].get_id()){
+            s = i;
+            break;
+            }
+    }
+
+    student_str = students[s].get_name(); // Change this to the selected student's name
 
     std::cout << "The GPA for " << student_str << " is " << GPA << std::endl;
     

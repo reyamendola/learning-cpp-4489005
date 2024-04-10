@@ -1,7 +1,13 @@
 // Learning C++ 
 // Challenge 03_11
 // Create some classes, by Eduardo Corpeño 
-
+/*
+Three classes: student, course, name
+Student: id, name
+Course: id, name, credits
+Grade: student_id, course_id, grade
+Task: write constructor and getter implementations
+*/
 #include <iostream>
 #include "records.h"
 
